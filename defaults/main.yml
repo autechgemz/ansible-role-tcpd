@@ -1,0 +1,13 @@
+---
+
+tcpd_package_ensure: 'present'
+
+tcpd_config_allow:
+  - comment:
+    daemon: ALL
+    client: ALL
+
+tcpd_config_deny:
+  - comment:
+    daemon: ALL
+    client: ALL

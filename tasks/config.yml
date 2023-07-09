@@ -1,0 +1,24 @@
+---
+
+- name: Config tasks
+  tags:
+    - tcpd_config
+    - tcpd
+  become: true
+  block:
+    - name: Manage host access control file
+      ansible.builtin.template:
+        src: hosts.allow.j2
+        dest: /etc/hosts.allow
+        mode: 0644
+        owner: root
+        group: root
+      when: tcpd_config_allow is defined and tcpd_config_allow
+    - name: Manage host deny control file
+      ansible.builtin.template:
+        src: hosts.deny.j2
+        dest: /etc/hosts.deny
+        mode: 0644
+        owner: root
+        group: root
+      when: tcpd_config_deny is defined and tcpd_config_deny

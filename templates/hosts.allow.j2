@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+{% if tcpd_config_allow is defined and tcpd_config_allow %}
+{% for rule in tcpd_config_allow %}
+{% if rule.comment is defined and rule.comment != None %}# {{ rule.comment }}
+{% endif %}
+{{ rule.daemon }}:   {{ rule.client }}
+{% endfor %}
+{% endif %}

@@ -1,0 +1,5 @@
+---
+
+tcpd_package_name:
+    - tcp_wrappers
+    - tcp_wrappers-libs
